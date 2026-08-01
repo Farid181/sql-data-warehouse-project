@@ -42,7 +42,7 @@ BEGIN
 			cst_key,
 			cst_firstname,
 			cst_lastname,
-			cst_material_status,
+			cst_marital_status,
 			cst_gndr,
 			cst_create_date)
 
@@ -54,7 +54,7 @@ BEGIN
 		CASE WHEN UPPER(TRIM(cst_material_status)) = 'S' THEN 'Single'
 			 WHEN UPPER(TRIM(cst_material_status)) = 'M' THEN 'Married'
 			 ELSE 'N/A'
-		END cst_material_status, -- Normalize martial status values to readable format 
+		END cst_marital_status, -- Normalize martial status values to readable format 
 		CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
 			 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
 			 ELSE 'N/A'
@@ -211,7 +211,7 @@ BEGIN
 		-- Loading silver.erp_px_cat_g1v2
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: silver.erp_px_cat_g1v2';
-		TRUNCATE TABLE silver.erp_px_cat_g1v2
+		TRUNCATE TABLE silver.erp_px_cat_g1v2 
 		PRINT '>> Inserting Data Into: silver.erp_px_cat_g1v2';
 
 		INSERT INTO silver.erp_px_cat_g1v2 
